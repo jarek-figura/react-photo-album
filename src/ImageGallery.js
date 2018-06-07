@@ -221,7 +221,7 @@ export default class ImageGallery extends React.Component {
       this._intervalId = null;
     }
 
-    if(this.resizeObserver && this._imageGallerySlideWrapper) {
+    if (this.resizeObserver && this._imageGallerySlideWrapper) {
       this.resizeObserver.unobserve(this._imageGallerySlideWrapper);
     }
 
@@ -353,7 +353,7 @@ export default class ImageGallery extends React.Component {
   };
 
   _onSliding = () => {
-    const { isTransitioning } = this.state;
+    const {isTransitioning} = this.state;
     this._transitionTimer = window.setTimeout(() => {
       if (isTransitioning) {
         this.setState({isTransitioning: !isTransitioning});
@@ -428,7 +428,7 @@ export default class ImageGallery extends React.Component {
   }, 300);
 
   _handleResize = () => {
-    const { currentIndex } = this.state;
+    const {currentIndex} = this.state;
     if (this._imageGallery) {
       this.setState({
         galleryWidth: this._imageGallery.offsetWidth
@@ -454,7 +454,7 @@ export default class ImageGallery extends React.Component {
   };
 
   _isThumbnailHorizontal() {
-    const { thumbnailPosition } = this.props;
+    const {thumbnailPosition} = this.props;
     return thumbnailPosition === 'left' || thumbnailPosition === 'right';
   }
 
@@ -464,7 +464,7 @@ export default class ImageGallery extends React.Component {
     const ESC_KEY = 27;
     const key = parseInt(event.keyCode || event.which || 0);
 
-    switch(key) {
+    switch (key) {
       case LEFT_ARROW:
         if (this._canSlideLeft() && !this._intervalId) {
           this._slideLeft();
@@ -490,28 +490,28 @@ export default class ImageGallery extends React.Component {
   };
 
   _setScrollDirection(deltaX, deltaY) {
-    const { scrollingUpDown, scrollingLeftRight } = this.state;
+    const {scrollingUpDown, scrollingLeftRight} = this.state;
     const x = Math.abs(deltaX);
     const y = Math.abs(deltaY);
 
     // If y > x the user is scrolling up and down
     if (y > x && !scrollingUpDown && !scrollingLeftRight) {
-      this.setState({ scrollingUpDown: true });
+      this.setState({scrollingUpDown: true});
     } else if (!scrollingLeftRight && !scrollingUpDown) {
-      this.setState({ scrollingLeftRight: true });
+      this.setState({scrollingLeftRight: true});
     }
   };
 
   _handleOnSwiped = (e, deltaX, deltaY, isFlick) => {
-    const { scrollingUpDown, scrollingLeftRight } = this.state;
+    const {scrollingUpDown, scrollingLeftRight} = this.state;
     if (scrollingUpDown) {
       // user stopped scrollingUpDown
-      this.setState({ scrollingUpDown: false });
+      this.setState({scrollingUpDown: false});
     }
 
     if (scrollingLeftRight) {
       // user stopped scrollingLeftRight
-      this.setState({ scrollingLeftRight: false });
+      this.setState({scrollingLeftRight: false});
     }
 
     if (!scrollingUpDown) { // don't swipe if user is scrolling
@@ -521,7 +521,7 @@ export default class ImageGallery extends React.Component {
   };
 
   _handleOnSwipedTo(side, isFlick) {
-    const { currentIndex, isTransitioning } = this.state;
+    const {currentIndex, isTransitioning} = this.state;
     let slideTo = currentIndex;
 
     if ((this._sufficientSwipeOffset() || isFlick) && !isTransitioning) {
@@ -546,8 +546,8 @@ export default class ImageGallery extends React.Component {
   }
 
   _handleSwiping = (e, deltaX, deltaY, delta) => {
-    const { galleryWidth, isTransitioning, scrollingUpDown } = this.state;
-    const { swipingTransitionDuration } = this.props;
+    const {galleryWidth, isTransitioning, scrollingUpDown} = this.state;
+    const {swipingTransitionDuration} = this.props;
     this._setScrollDirection(deltaX, deltaY);
     if (!isTransitioning && !scrollingUpDown) {
       const side = deltaX < 0 ? 1 : -1;
@@ -567,7 +567,7 @@ export default class ImageGallery extends React.Component {
       });
     } else {
       // don't move the slide
-      this.setState({ offsetPercentage: 0 });
+      this.setState({offsetPercentage: 0});
     }
   };
 
@@ -585,7 +585,7 @@ export default class ImageGallery extends React.Component {
   }
 
   _updateThumbnailTranslate(previousIndex) {
-    const { thumbsTranslate, currentIndex } = this.state;
+    const {thumbsTranslate, currentIndex} = this.state;
     if (this.state.currentIndex === 0) {
       this._setThumbsTranslate(0);
     } else {
@@ -753,7 +753,7 @@ export default class ImageGallery extends React.Component {
     returns true if the gallery is transitioning and the index is not the
     previous or currentIndex
     */
-    const { isTransitioning, previousIndex, currentIndex } = this.state;
+    const {isTransitioning, previousIndex, currentIndex} = this.state;
     const indexIsNotPreviousOrNextSlide = !(index === previousIndex || index === currentIndex);
     return isTransitioning && indexIsNotPreviousOrNextSlide;
   }
@@ -770,7 +770,7 @@ export default class ImageGallery extends React.Component {
       Ignore isTransitioning because were not going to sibling slides
       e.g. center to left or center to right
     */
-    const { previousIndex, currentIndex } = this.state;
+    const {previousIndex, currentIndex} = this.state;
     const totalSlides = this.props.items.length - 1;
     // we want to show the in between slides transition
     const slidingMoreThanOneSlideLeftOrRight = Math.abs(previousIndex - currentIndex) > 1;
@@ -783,8 +783,8 @@ export default class ImageGallery extends React.Component {
   }
 
   _getSlideStyle(index) {
-    const { currentIndex, offsetPercentage } = this.state;
-    const { infinite, items, useTranslate3D } = this.props;
+    const {currentIndex, offsetPercentage} = this.state;
+    const {infinite, items, useTranslate3D} = this.props;
     const baseTranslateX = -100 * currentIndex;
     const totalSlides = items.length - 1;
 
@@ -823,7 +823,7 @@ export default class ImageGallery extends React.Component {
 
   _getThumbnailStyle() {
     let translate;
-    const { useTranslate3D } = this.props;
+    const {useTranslate3D} = this.props;
 
     if (this._isThumbnailHorizontal()) {
       translate = `translate(0, ${this.state.thumbsTranslate}px)`;
@@ -855,7 +855,6 @@ export default class ImageGallery extends React.Component {
 
   _renderItem = (item) => {
     const onImageError = this.props.onImageError || this._handleImageError;
-
     return (
       <div className='image-gallery-image'>
         {
@@ -889,12 +888,11 @@ export default class ImageGallery extends React.Component {
               onError={onImageError}
             />
         }
-
         {
           item.description &&
           <span className='image-gallery-description'>
-              {item.description}
-            </span>
+            {item.description}
+          </span>
         }
       </div>
     );
@@ -982,7 +980,7 @@ export default class ImageGallery extends React.Component {
           onMouseLeave={this.props.onMouseLeave}
           role={this.props.onClick && 'button'}
         >
-          {showItem ? renderItem(item) : <div style={{ height: '100%' }}></div>}
+          {showItem ? renderItem(item) : <div style={{height: '100%'}}></div>}
         </div>
       );
 
@@ -1016,7 +1014,7 @@ export default class ImageGallery extends React.Component {
 
       if (this.props.showBullets) {
         const bulletOnClick = event => {
-          if(item.bulletOnClick){
+          if (item.bulletOnClick) {
             item.bulletOnClick({item, itemIndex: index, currentIndex});
           }
           return this.slideToIndex.call(this, index, event);
