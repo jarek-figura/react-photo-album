@@ -382,15 +382,15 @@ export default class ImageGallery extends React.Component {
   };
 
   _onScreenChangeEvent() {
-    screenChangeEvents.map(eventName => {
-      document.addEventListener(eventName, this._handleScreenChange);
-    });
+    screenChangeEvents.map(eventName =>
+      document.addEventListener(eventName, this._handleScreenChange)
+    );
   }
 
   _offScreenChangeEvent() {
-    screenChangeEvents.map(eventName => {
-      document.removeEventListener(eventName, this._handleScreenChange);
-    });
+    screenChangeEvents.map(eventName =>
+      document.removeEventListener(eventName, this._handleScreenChange)
+    );
   }
 
   _toggleFullScreen = () => {

@@ -159,8 +159,7 @@ class App extends Component {
                 src={item.embedUrl}
                 frameBorder='0'
                 allowFullScreen
-              >
-              </iframe>
+              ></iframe>
             </div>
             :
             <a onClick={this._toggleShowVideo.bind(this, item.embedUrl)}>
@@ -207,10 +206,8 @@ class App extends Component {
         />
 
         <div className='app-sandbox'>
-
           <div className='app-sandbox-content'>
             <h2 className='app-header'>Settings</h2>
-
             <ul className='app-buttons'>
               <li>
                 <div className='app-interval-input-group'>
@@ -222,7 +219,6 @@ class App extends Component {
                     value={this.state.slideInterval}/>
                 </div>
               </li>
-
               <li>
                 <div className='app-interval-input-group'>
                   <span className='app-interval-label'>Slide Duration</span>
@@ -233,7 +229,6 @@ class App extends Component {
                     value={this.state.slideDuration}/>
                 </div>
               </li>
-
               <li>
                 <div className='app-interval-input-group'>
                   <span className='app-interval-label'>Thumbnail Bar Position</span>
@@ -250,7 +245,6 @@ class App extends Component {
                 </div>
               </li>
             </ul>
-
             <ul className='app-checkboxes'>
               <li>
                 <input
@@ -310,7 +304,6 @@ class App extends Component {
               </li>
             </ul>
           </div>
-
         </div>
       </section>
     );
