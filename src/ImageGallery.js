@@ -750,8 +750,8 @@ export default class ImageGallery extends React.Component {
 
   _slideIsTransitioning(index) {
     /*
-    returns true if the gallery is transitioning and the index is not the
-    previous or currentIndex
+      returns true if the gallery is transitioning and the index is not the
+      previous or currentIndex
     */
     const {isTransitioning, previousIndex, currentIndex} = this.state;
     const indexIsNotPreviousOrNextSlide = !(index === previousIndex || index === currentIndex);
@@ -949,18 +949,12 @@ export default class ImageGallery extends React.Component {
 
     this.props.items.forEach((item, index) => {
       const alignment = this._getAlignmentClassName(index);
-      const originalClass = item.originalClass ?
-        ` ${item.originalClass}` : '';
-      const thumbnailClass = item.thumbnailClass ?
-        ` ${item.thumbnailClass}` : '';
-
-      const renderItem = item.renderItem ||
-        this.props.renderItem || this._renderItem;
-
-      const renderThumbInner = item.renderThumbInner ||
-        this.props.renderThumbInner || this._renderThumbInner;
-
+      const originalClass = item.originalClass ? ` ${item.originalClass}` : '';
+      const thumbnailClass = item.thumbnailClass ? ` ${item.thumbnailClass}` : '';
+      const renderItem = item.renderItem || this.props.renderItem || this._renderItem;
+      const renderThumbInner = item.renderThumbInner || this.props.renderThumbInner || this._renderThumbInner;
       const showItem = !this.props.lazyLoad || alignment || this._lazyLoaded[index];
+
       if (showItem && this.props.lazyLoad) {
         this._lazyLoaded[index] = true;
       }
@@ -1154,8 +1148,7 @@ export default class ImageGallery extends React.Component {
             </div>
           }
           {
-            (thumbnailPosition === 'top' || thumbnailPosition === 'left') &&
-            slideWrapper
+            (thumbnailPosition === 'top' || thumbnailPosition === 'left') && slideWrapper
           }
         </div>
       </div>
