@@ -1036,26 +1036,16 @@ export default class ImageGallery extends React.Component {
         ref={this._initGalleryResizing}
         className={`image-gallery-slide-wrapper ${thumbnailPosition}`}
       >
-
-        {this.props.renderCustomControls && this.props.renderCustomControls()}
-
-        {
-          this.props.showFullscreenButton &&
-          this.props.renderFullscreenButton(this._toggleFullScreen, isFullscreen)
-        }
-
-        {
-          this.props.showPlayButton &&
-          this.props.renderPlayPauseButton(this._togglePlay, isPlaying)
-        }
-
+        { this.props.renderCustomControls && this.props.renderCustomControls() }
+        { this.props.showFullscreenButton && this.props.renderFullscreenButton(this._toggleFullScreen, isFullscreen) }
+        { this.props.showPlayButton && this.props.renderPlayPauseButton(this._togglePlay, isPlaying) }
         {
           this._canNavigate() ?
             [
               this.props.showNav &&
-              <span key='navigation'>
-                  {this.props.renderLeftNav(slideLeft, !this._canSlideLeft())}
-                {this.props.renderRightNav(slideRight, !this._canSlideRight())}
+                <span key='navigation'>
+                  { this.props.renderLeftNav(slideLeft, !this._canSlideLeft()) }
+                  { this.props.renderRightNav(slideRight, !this._canSlideRight()) }
                 </span>,
               <Swipeable
                 className='image-gallery-swipe'
@@ -1119,13 +1109,8 @@ export default class ImageGallery extends React.Component {
         className={classNames}
         aria-live='polite'
       >
-        <div
-          className={`image-gallery-content${isFullscreen ? ' fullscreen' : ''}`}
-        >
-          {
-            (thumbnailPosition === 'bottom' || thumbnailPosition === 'right') &&
-            slideWrapper
-          }
+        <div className={`image-gallery-content${isFullscreen ? ' fullscreen' : ''}`} >
+          { (thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper }
           {
             this.props.showThumbnails &&
             <div
@@ -1147,9 +1132,7 @@ export default class ImageGallery extends React.Component {
               </div>
             </div>
           }
-          {
-            (thumbnailPosition === 'top' || thumbnailPosition === 'left') && slideWrapper
-          }
+          { (thumbnailPosition === 'top' || thumbnailPosition === 'left') && slideWrapper }
         </div>
       </div>
     );
