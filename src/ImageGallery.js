@@ -4,6 +4,7 @@ import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import ResizeObserver from 'resize-observer-polyfill';
 import PropTypes from 'prop-types';
+import './ImageGallery.css';
 
 const screenChangeEvents = [
   'fullscreenchange',
