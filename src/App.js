@@ -17,7 +17,7 @@ class App extends Component {
       showPlayButton: true,
       showGalleryPlayButton: true,
       showNav: true,
-      slideDuration: 450,
+      slideDuration: 500,
       slideInterval: 2000,
       thumbnailPosition: 'bottom',
       showVideo: {},
