@@ -105,8 +105,9 @@ class App extends Component {
     let images = [];
     for (let i = 2; i < 12; i++) {
       images.push({
-        original: `${PREFIX_URL}${i}.jpg`,
-        thumbnail:`${PREFIX_URL}${i}t.jpg`
+        original: `https://picsum.photos/${600 + i}/${600 + i}/?random`,
+        thumbnail:`https://picsum.photos/${600 + i}/${600 + i}/?random`,
+        displacement: `img/displacement/${i + 1}.jpg`
       });
     }
     return images;
