@@ -89,17 +89,17 @@ class App extends Component {
     console.debug('playing from index', index);
   }
 
-  _handleInputChange(state, event) {
-    this.setState({[state]: event.target.value});
-  }
-
-  _handleCheckboxChange(state, event) {
-    this.setState({[state]: event.target.checked});
-  }
-
-  _handleThumbnailPositionChange(event) {
-    this.setState({thumbnailPosition: event.target.value});
-  }
+  // _handleInputChange(state, event) {
+  //   this.setState({[state]: event.target.value});
+  // }
+  //
+  // _handleCheckboxChange(state, event) {
+  //   this.setState({[state]: event.target.checked});
+  // }
+  //
+  // _handleThumbnailPositionChange(event) {
+  //   this.setState({thumbnailPosition: event.target.value});
+  // }
 
   _getStaticImages() {
     let images = [];
