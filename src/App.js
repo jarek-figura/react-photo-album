@@ -17,7 +17,7 @@ class App extends Component {
       showPlayButton: true,
       showGalleryPlayButton: true,
       showNav: true,
-      slideDuration: 500,
+      slideDuration: 1000,
       slideInterval: 2000,
       thumbnailPosition: 'bottom',
       showVideo: {},
@@ -202,8 +202,8 @@ class App extends Component {
           showIndex={this.state.showIndex}
           showNav={this.state.showNav}
           thumbnailPosition={this.state.thumbnailPosition}
-          slideDuration={parseInt(this.state.slideDuration)}
-          slideInterval={parseInt(this.state.slideInterval)}
+          slideDuration={this.state.slideDuration}
+          slideInterval={this.state.slideInterval}
           additionalClass="app-image-gallery"
         />
       </section>
