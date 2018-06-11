@@ -34,6 +34,7 @@ class App extends Component {
       {
         original: `${PREFIX_URL}image_set_default.jpg`,
         thumbnail: `${PREFIX_URL}image_set_thumb.jpg`,
+        displacement: `img/displacement/1.jpg`,
         imageSet: [
           {
             srcSet: `${PREFIX_URL}image_set_cropped.jpg`,
@@ -48,6 +49,7 @@ class App extends Component {
       {
         original: `${PREFIX_URL}1.jpg`,
         thumbnail: `${PREFIX_URL}1t.jpg`,
+        displacement: `img/displacement/2.jpg`,
         originalClass: 'featured-slide',
         thumbnailClass: 'featured-thumb',
         description: 'Custom class for slides & thumbnails'
@@ -105,8 +107,8 @@ class App extends Component {
     let images = [];
     for (let i = 2; i < 12; i++) {
       images.push({
-        original: `https://picsum.photos/${600 + i}/${600 + i}/?random`,
-        thumbnail:`https://picsum.photos/${600 + i}/${600 + i}/?random`,
+        original: `https://picsum.photos/${1200 + i}/${800 + i}/?random`,
+        thumbnail:`https://picsum.photos/${1200 + i}/${800 + i}/?random`,
         displacement: `img/displacement/${i + 1}.jpg`
       });
     }
